@@ -321,7 +321,7 @@ CREATE TABLE `sidebargrid_grid` (
 
 LOCK TABLES `sidebargrid_grid` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_grid` DISABLE KEYS */;
-INSERT INTO `sidebargrid_grid` VALUES (100,'Manager',NULL,NULL,NULL,NULL),(105,'Inventory','inventory',NULL,'inventory_id','[{\"style\": {\"textAlign\": \"center\"}, \"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"30%\", \"Header\": \"Available Stock\", \"accessor\": \"availablestock\"}, {\"width\": \"30%\", \"Header\": \"Low Stock\", \"accessor\": \"lowstock\"}, {\"width\": \"35%\", \"Header\": \"Out of Stock\", \"accessor\": \"outstock\"}]'),(110,'Orders','order',NULL,'order_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"15%\", \"Header\": \"Order #\", \"accessor\": \"order_number\"}, {\"width\": \"20%\", \"Header\": \"Status\", \"accessor\": \"description\"}, {\"width\": \"20%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"30%\", \"Header\": \"Gallons\", \"accessor\": \"quantity\"}, {\"Cell\": \"editOrder\", \"width\": \"15%\", \"Header\": \"Edit\"}]'),(120,'Jobs','job',NULL,'job_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"10%\", \"Header\": \"Job #\", \"accessor\": \"job_number\"}, {\"width\": \"15%\", \"Header\": \"Status\", \"accessor\": \"description\"}, {\"width\": \"15%\", \"Header\": \"House Address\", \"accessor\": \"address\"}, {\"width\": \"10%\", \"Header\": \"Total sqft\", \"accessor\": \"total_area\"}, {\"width\": \"10%\", \"Header\": \"Gallons\", \"accessor\": \"quantity\"}, {\"width\": \"10%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"15%\", \"Header\": \"Painter\", \"accessor\": \"painter\"}, {\"Cell\": \"editJob\", \"width\": \"10%\", \"Header\": \"Edit\"}]');
+INSERT INTO `sidebargrid_grid` VALUES (100,'Manager',NULL,NULL,NULL,NULL),(105,'Inventory','inventory',NULL,'inventory_id','[{\"style\": {\"textAlign\": \"center\"}, \"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"24%\", \"Header\": \"Available Stock\", \"accessor\": \"availablestock\"}, {\"width\": \"24%\", \"Header\": \"Low Stock\", \"accessor\": \"lowstock\"}, {\"width\": \"24%\", \"Header\": \"Out of Stock\", \"accessor\": \"outstock\"}, {\"width\": \"23%\", \"Header\": \"Ordered\", \"accessor\": \"ordered\"}]'),(110,'Orders','order',NULL,'order_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"15%\", \"Header\": \"Order #\", \"accessor\": \"order_number\"}, {\"width\": \"20%\", \"Header\": \"Status\", \"accessor\": \"description\"}, {\"width\": \"20%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"30%\", \"Header\": \"Gallons\", \"accessor\": \"quantity\"}, {\"Cell\": \"editOrder\", \"width\": \"15%\", \"Header\": \"Edit\"}]'),(120,'Jobs','job',NULL,'job_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"10%\", \"Header\": \"Job #\", \"accessor\": \"job_number\"}, {\"width\": \"15%\", \"Header\": \"Status\", \"accessor\": \"description\"}, {\"width\": \"15%\", \"Header\": \"House Address\", \"accessor\": \"address\"}, {\"width\": \"10%\", \"Header\": \"Total sqft\", \"accessor\": \"total_area\"}, {\"width\": \"10%\", \"Header\": \"Gallons\", \"accessor\": \"quantity\"}, {\"width\": \"10%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"15%\", \"Header\": \"Painter\", \"accessor\": \"painter\"}, {\"Cell\": \"editJob\", \"width\": \"10%\", \"Header\": \"Edit\"}]'),(130,'Inventory',NULL,NULL,NULL,NULL),(140,'Audit','audit',NULL,'inventory_audit_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"10%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"10%\", \"Header\": \"System Gallons\", \"accessor\": \"system_quantity\"}, {\"width\": \"10%\", \"Header\": \"Audited Gallons\", \"accessor\": \"manual_quantity\"}, {\"width\": \"20%\", \"Header\": \"Notes\", \"accessor\": \"notes\"}, {\"width\": \"15%\", \"Header\": \"Create\", \"accessor\": \"created\"}, {\"width\": \"15%\", \"Header\": \"Completd\", \"accessor\": \"completed\"}, {\"Cell\": \"editJob\", \"width\": \"15%\", \"Header\": \"Edit\"}]'),(150,'Transactions','transact',NULL,'inventory_transaction_id','[{\"width\": \"5%\", \"Header\": \"No\", \"accessor\": \"rowNum\", \"disableSortBy\": true}, {\"width\": \"20%\", \"Header\": \"Paint\", \"accessor\": \"name\"}, {\"width\": \"15%\", \"Header\": \"Gallons\", \"accessor\": \"quantity\"}, {\"width\": \"15%\", \"Header\": \"Job #\", \"accessor\": \"job_number\"}, {\"width\": \"15%\", \"Header\": \"Order #\", \"accessor\": \"order_number\"}, {\"width\": \"15%\", \"Header\": \"Create\", \"accessor\": \"created\"}, {\"width\": \"15%\", \"Header\": \"Completd\", \"accessor\": \"completed\"}]');
 /*!40000 ALTER TABLE `sidebargrid_grid` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +350,7 @@ CREATE TABLE `sidebargrid_gridfilter` (
 
 LOCK TABLES `sidebargrid_gridfilter` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_gridfilter` DISABLE KEYS */;
-INSERT INTO `sidebargrid_gridfilter` VALUES (1051,105,10),(1101,110,10),(1201,120,10);
+INSERT INTO `sidebargrid_gridfilter` VALUES (1051,105,10),(1101,110,10),(1201,120,10),(1202,120,20);
 /*!40000 ALTER TABLE `sidebargrid_gridfilter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -376,7 +376,7 @@ CREATE TABLE `sidebargrid_gridfilterfield` (
 
 LOCK TABLES `sidebargrid_gridfilterfield` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_gridfilterfield` DISABLE KEYS */;
-INSERT INTO `sidebargrid_gridfilterfield` VALUES (10,'Paint','name','[\"Black\", \"Blue\", \"Grey\", \"Purple\", \"White\"]');
+INSERT INTO `sidebargrid_gridfilterfield` VALUES (10,'Paint','name','[\"Black\", \"Blue\", \"Grey\", \"Purple\", \"White\"]'),(20,'Painter','painter','[\"Jane\", \"Pam\", \"Paul\", \"Penny\", \"Peter\"]');
 /*!40000 ALTER TABLE `sidebargrid_gridfilterfield` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,7 +400,7 @@ CREATE TABLE `sidebargrid_sidebar` (
 
 LOCK TABLES `sidebargrid_sidebar` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_sidebar` DISABLE KEYS */;
-INSERT INTO `sidebargrid_sidebar` VALUES (1,'GridSidebarWithoutItemsForTest'),(10,'Manager');
+INSERT INTO `sidebargrid_sidebar` VALUES (1,'GridSidebarWithoutItemsForTest'),(10,'Manager'),(20,'Painter');
 /*!40000 ALTER TABLE `sidebargrid_sidebar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -427,7 +427,7 @@ CREATE TABLE `sidebargrid_sidebarbutton` (
 
 LOCK TABLES `sidebargrid_sidebarbutton` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_sidebarbutton` DISABLE KEYS */;
-INSERT INTO `sidebargrid_sidebarbutton` VALUES (10,10,'[{}]');
+INSERT INTO `sidebargrid_sidebarbutton` VALUES (10,10,'[{}]'),(20,20,'[{}]');
 /*!40000 ALTER TABLE `sidebargrid_sidebarbutton` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `sidebargrid_sidebarcarousel` (
 
 LOCK TABLES `sidebargrid_sidebarcarousel` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_sidebarcarousel` DISABLE KEYS */;
-INSERT INTO `sidebargrid_sidebarcarousel` VALUES (10,10,'[{\"itemKey\": \"student_id\", \"itemImage\": \"image_path\", \"itemTitle\": \"first_middle_name\", \"itemSubtitle\": \"class_name\"}]');
+INSERT INTO `sidebargrid_sidebarcarousel` VALUES (10,10,'[{\"itemKey\": \"student_id\", \"itemImage\": \"image_path\", \"itemTitle\": \"first_middle_name\", \"itemSubtitle\": \"class_name\"}]'),(20,20,'[{\"itemKey\": \"student_id\", \"itemImage\": \"image_path\", \"itemTitle\": \"first_middle_name\", \"itemSubtitle\": \"class_name\"}]');
 /*!40000 ALTER TABLE `sidebargrid_sidebarcarousel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -491,7 +491,7 @@ CREATE TABLE `sidebargrid_sidebaritem` (
 
 LOCK TABLES `sidebargrid_sidebaritem` WRITE;
 /*!40000 ALTER TABLE `sidebargrid_sidebaritem` DISABLE KEYS */;
-INSERT INTO `sidebargrid_sidebaritem` VALUES (101,10,105,0,'Inventory','bi bi-briefcase',1,1,NULL),(102,10,110,0,'Orders','bi bi-journals',0,2,NULL),(103,10,120,0,'Jobs','bi bi-journals',0,3,NULL);
+INSERT INTO `sidebargrid_sidebaritem` VALUES (101,10,105,0,'Dashboard','bi bi-paint-bucket',1,1,NULL),(102,10,110,0,'Orders','bi bi-truck',0,2,NULL),(103,10,120,0,'Jobs','bi bi-journals',0,3,NULL),(104,10,130,1,'Inventory','bi bi-grid-3x3-gap-fill',0,4,NULL),(105,10,140,0,'Audit','bi bi-question-circle',0,5,104),(106,10,150,0,'Transactions','bi bi-clipboard2-data-fill',0,6,104),(201,20,105,0,'Dashboard','bi bi-paint-bucket',1,1,NULL),(202,20,120,0,'Jobs','bi bi-journals',0,2,NULL);
 /*!40000 ALTER TABLE `sidebargrid_sidebaritem` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -504,4 +504,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-24 22:19:13
+-- Dump completed on 2024-03-25  7:27:36

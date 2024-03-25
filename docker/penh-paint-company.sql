@@ -38,7 +38,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,1,60),(2,2,90),(3,3,60),(4,4,90),(5,5,40);
+INSERT INTO `inventory` VALUES (1,1,28),(2,2,73),(3,3,60),(4,4,34),(5,5,40);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `inventory_audit` (
 
 LOCK TABLES `inventory_audit` WRITE;
 /*!40000 ALTER TABLE `inventory_audit` DISABLE KEYS */;
-INSERT INTO `inventory_audit` VALUES (1,1,60,60,NULL,'2024-02-20 00:00:00','2024-02-20 00:00:00'),(2,2,90,90,NULL,'2024-02-20 00:00:00','2024-02-20 00:00:00'),(3,3,60,60,NULL,'2024-02-20 00:00:00','2024-02-20 00:00:00'),(4,4,90,90,NULL,'2024-02-20 00:00:00','2024-02-20 00:00:00'),(5,5,40,40,NULL,'2024-02-20 00:00:00','2024-02-20 00:00:00');
+INSERT INTO `inventory_audit` VALUES (1,1,60,60,'no spill or waste','2024-02-20 00:00:00','2024-02-20 00:00:00'),(2,2,90,90,'no spill or waste','2024-02-20 00:00:00','2024-02-20 00:00:00'),(3,3,60,60,'no spill or waste','2024-02-20 00:00:00','2024-02-20 00:00:00'),(4,4,90,90,'no spill or waste','2024-02-20 00:00:00','2024-02-20 00:00:00'),(5,5,40,40,'no spill or waste','2024-02-20 00:00:00','2024-02-20 00:00:00');
 /*!40000 ALTER TABLE `inventory_audit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ CREATE TABLE `inventory_order` (
 
 LOCK TABLES `inventory_order` WRITE;
 /*!40000 ALTER TABLE `inventory_order` DISABLE KEYS */;
-INSERT INTO `inventory_order` VALUES (1,1,1,'ON001',30);
+INSERT INTO `inventory_order` VALUES (1,4,2,'ON001',56);
 /*!40000 ALTER TABLE `inventory_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `inventory_transaction` (
   CONSTRAINT `fk_inventory_transaction_job1` FOREIGN KEY (`job_id`) REFERENCES `job` (`job_id`),
   CONSTRAINT `fk_inventory_transaction_order1` FOREIGN KEY (`order_id`) REFERENCES `inventory_order` (`order_id`),
   CONSTRAINT `fk_inventory_transaction_transaction_status1` FOREIGN KEY (`transaction_status_id`) REFERENCES `transaction_status` (`transaction_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,6 +138,7 @@ CREATE TABLE `inventory_transaction` (
 
 LOCK TABLES `inventory_transaction` WRITE;
 /*!40000 ALTER TABLE `inventory_transaction` DISABLE KEYS */;
+INSERT INTO `inventory_transaction` VALUES (1,1,1,NULL,2,-6,'2024-02-21 00:00:00','2024-02-21 00:00:00'),(2,2,2,NULL,2,-17,'2024-02-22 00:00:00','2024-02-22 00:00:00'),(3,4,3,NULL,2,-17,'2024-02-23 00:00:00','2024-02-23 00:00:00'),(4,2,4,NULL,2,-11,'2024-02-23 00:00:00','2024-02-23 00:00:00'),(5,1,5,NULL,2,-17,'2024-02-24 00:00:00','2024-02-24 00:00:00'),(6,1,6,NULL,2,-9,'2024-02-25 00:00:00','2024-02-25 00:00:00'),(7,4,7,NULL,2,-17,'2024-02-26 00:00:00','2024-02-26 00:00:00'),(8,4,8,NULL,2,-11,'2024-02-27 00:00:00','2024-02-27 00:00:00');
 /*!40000 ALTER TABLE `inventory_transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +165,7 @@ CREATE TABLE `job` (
   CONSTRAINT `fk_job_job_status1` FOREIGN KEY (`job_status_id`) REFERENCES `job_status` (`job_status_id`),
   CONSTRAINT `fk_job_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
   CONSTRAINT `fk_job_staff1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +174,7 @@ CREATE TABLE `job` (
 
 LOCK TABLES `job` WRITE;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` VALUES (1,1,2,1,'PJ001','First House',1000,6);
+INSERT INTO `job` VALUES (1,1,2,1,'PJ001','First House',1000,6),(2,2,2,4,'PJ002','Second House',3000,17),(3,4,2,5,'PJ003','Third House',3000,17),(4,2,2,6,'PJ004','Fourth House',2000,11),(5,1,2,7,'PJ005','Fith House',3000,17),(6,1,2,4,'PJ006','Sixth House',1500,9),(7,4,2,1,'PJ007','Seventh House',3000,17),(8,4,2,5,'PJ008','Eigth House',2000,11);
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -374,7 +375,7 @@ CREATE TABLE `staff_user` (
   KEY `fk_staff_user_staff1_idx` (`staff_id`),
   CONSTRAINT `fk_staff_user_staff1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`),
   CONSTRAINT `fk_staff_user_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -383,7 +384,7 @@ CREATE TABLE `staff_user` (
 
 LOCK TABLES `staff_user` WRITE;
 /*!40000 ALTER TABLE `staff_user` DISABLE KEYS */;
-INSERT INTO `staff_user` VALUES (1,1,1);
+INSERT INTO `staff_user` VALUES (1,1,1),(2,2,2);
 /*!40000 ALTER TABLE `staff_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +400,7 @@ CREATE TABLE `transaction_status` (
   `code` varchar(45) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`transaction_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,6 +409,7 @@ CREATE TABLE `transaction_status` (
 
 LOCK TABLES `transaction_status` WRITE;
 /*!40000 ALTER TABLE `transaction_status` DISABLE KEYS */;
+INSERT INTO `transaction_status` VALUES (1,'PEND','pending'),(2,'APPLIED','applied to inventory');
 /*!40000 ALTER TABLE `transaction_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,7 +428,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   KEY `fk_user_user_role_type1_idx` (`user_role_type_id`),
   CONSTRAINT `fk_user_user_role_type1` FOREIGN KEY (`user_role_type_id`) REFERENCES `user_role_type` (`user_role_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -435,7 +437,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,1,'jane@thepaintcompany.ca','$2b$10$WR/51GG6Wqg5CXiHrOwRoeKsUNNt8fdip4E4yqcca3a3Gq/xLrwrK');
+INSERT INTO `user` VALUES (1,1,'jane@thepaintcompany.ca','$2b$10$WR/51GG6Wqg5CXiHrOwRoeKsUNNt8fdip4E4yqcca3a3Gq/xLrwrK'),(2,2,'john@thepaintcompany.ca','$2b$10$WR/51GG6Wqg5CXiHrOwRoeKsUNNt8fdip4E4yqcca3a3Gq/xLrwrK');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -451,7 +453,7 @@ CREATE TABLE `user_role_type` (
   `code` varchar(45) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_role_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -460,17 +462,9 @@ CREATE TABLE `user_role_type` (
 
 LOCK TABLES `user_role_type` WRITE;
 /*!40000 ALTER TABLE `user_role_type` DISABLE KEYS */;
-INSERT INTO `user_role_type` VALUES (1,'MANAGER','Manager');
+INSERT INTO `user_role_type` VALUES (1,'MANAGER','Manager'),(2,'PAINTER','Painter');
 /*!40000 ALTER TABLE `user_role_type` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'penh-paint-company'
---
-
---
--- Dumping routines for database 'penh-paint-company'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -481,4 +475,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-24 22:16:24
+-- Dump completed on 2024-03-25  7:26:42
