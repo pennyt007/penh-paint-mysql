@@ -1,0 +1,18 @@
+# Use the official MySQL image as the base image
+FROM --platform=linux/amd64 mysql:8.0
+
+# Set environment variables for MySQL configuration - moved to docker-compose file
+# ENV MYSQL_ROOT_PASSWORD=MySQL2023
+# ENV MYSQL_DATABASE=penhincontainer
+
+# Copy SQL scripts into the container
+# COPY ./create-event.sql /docker-entrypoint-initdb.d/
+# COPY ./create-stored-procedure.sql /docker-entrypoint-initdb.d/
+# COPY ./enable-event.sql /docker-entrypoint-initdb.d/
+COPY ./penh-paint-company.sql /docker-entrypoint-initdb.d/
+COPY ./penh-paint-sidebargrid.sql /docker-entrypoint-initdb.d/
+COPY ./data.sql /docker-entrypoint-initdb.d/
+COPY ./init.sql /docker-entrypoint-initdb.d/
+
+# Expose MySQL default port
+EXPOSE 3306

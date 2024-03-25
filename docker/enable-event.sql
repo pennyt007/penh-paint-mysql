@@ -1,0 +1,2 @@
+
+ALTER EVENT event_processApprovedPointsOfProgress ENABLE;
